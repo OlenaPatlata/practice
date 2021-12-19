@@ -1,7 +1,27 @@
+body {
+  background-color: #fff;
+}
+/* 
+@media screen and (max-width: 600px) {
+  body {
+    background-color: #ffc107;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  body {
+    background-color: #388e3c;
+  }
+}
 .box::before {
   content: 'Это текст в ::before';
   font-size: 40px;
   color: orange;
+} */
+@media not screen and (max-width: 500px) {
+  body {
+    background-color: tomato;
+  }
 }
 
 .box::after {
@@ -23,10 +43,10 @@ body {
   margin: 0;
   list-style: none;
 }
-div {
+/* div {
   box-shadow: 0 2.8px 2.2px red, 0 6.7px 5.3px blue, 0 12.5px 10px green, 0 22.3px 17.9px purple,
     0 41.8px 33.4px orange, 0 100px 80px teal;
-}
+} */
 
 .list-item:not(:last-child) {
   margin-bottom: 5px;
@@ -92,4 +112,85 @@ div {
 .box:hover {
   background-color: teal;
   transform: rotate(180deg);
+}
+/* медиа запросы */
+.container {
+  max-width: 1170px;
+  min-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.element {
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 24px;
+  color: #fff;
+}
+
+/* 
+ * Override or add new styles for blocks on wider screens.
+ */
+@media screen and (min-width: 768px) {
+  .container1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .element1 {
+    flex-basis: calc(100% / 2);
+    font-size: 32px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .elemen1t {
+    flex-basis: calc(100% / 3);
+  }
+}
+
+/*
+ * SASS loop for background color generation.
+ */
+$colors: '#F44336', '#3F51B5', '#4CAF50', '#00BCD4', '#E91E63', '#009688';
+
+@each $color in $colors {
+  $idx: index($colors, $color);
+
+  .element1:nth-child(#{$idx}) {
+    background-color: #{$color};
+  }
+}
+.container-fluid {
+  padding: 1rem 0;
+  background-color: teal;
+}
+.container2 {
+  min-height: 100px;
+  width: 320px;
+  margin: auto;
+  background-color: antiquewhite;
+}
+@media screen and (min-width: 550px) {
+  .container-fluid {
+    background-color: slateblue;
+  }
+  .container2 {
+    width: calc(550px - 20px);
+    background-color: lavender;
+  }
+}
+@media screen and (min-width: 960px) {
+  .container-fluid {
+    background-color: slateblue;
+  }
+  .container2 {
+    width: calc(960px - 20px);
+    background-color: beige;
+  }
 }
